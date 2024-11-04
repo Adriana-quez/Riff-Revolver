@@ -20,7 +20,10 @@ public class NoteSpawner : MonoBehaviour
 
     void Update()
     {
-        if (spawnIndex < spawnTimesInBeats.Length && conductor.songPositionInBeats >= spawnTimesInBeats[spawnIndex])
+        float sampledTimeInBeats = conductor.musicSource.timeSamples /
+                                   (conductor.musicSource.clip.frequency * conductor.GetSecPerBeat(conductor.bpm));
+
+        if (spawnIndex < spawnTimesInBeats.Length && sampledTimeInBeats >= spawnTimesInBeats[spawnIndex])
         {
             SpawnNote();
             spawnIndex++;
