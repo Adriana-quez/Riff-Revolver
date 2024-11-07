@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 
     public int currentScore = 0;
     public int scorePerNote = 100;
+    public int scorePerGoodNote = 125;
+    public int scorePerPerfectNote = 150;
 
     public int currentMultiplier;
     public int multiplierTracker;
@@ -31,8 +33,6 @@ public class GameManager : MonoBehaviour
 
     public void NoteHit()
     {
-        Debug.Log("Hit");
-
         if (currentMultiplier - 1 < multiplierThresholds.Length)
         {
             multiplierTracker++;
@@ -44,9 +44,28 @@ public class GameManager : MonoBehaviour
         }
 
         multiplierText.text = "Multiplier: x" + currentMultiplier;
-
-        currentScore += scorePerNote * currentMultiplier;
         scoreText.text = "Score: " + currentScore.ToString();
+    }
+
+    public void NormalHit()
+    {
+        Debug.Log("Normal");
+        currentScore += scorePerNote * currentMultiplier;
+        NoteHit();
+    }
+
+    public void GoodHit()
+    {
+        Debug.Log("Good");
+        currentScore += scorePerGoodNote * currentMultiplier;
+        NoteHit();
+    }
+
+    public void PerfectHit()
+    {
+        Debug.Log("Perfect");
+        currentScore += scorePerPerfectNote * currentMultiplier;
+        NoteHit();
     }
 
     public void NoteMissed()

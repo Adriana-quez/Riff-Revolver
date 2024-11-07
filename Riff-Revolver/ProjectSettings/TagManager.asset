@@ -7,6 +7,7 @@ TagManager:
   - Note
   - Track1
   - Track2
+  - HitLine
   layers:
   - Default
   - TransparentFX
