@@ -4663,7 +4663,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &4816928035426475389
+--- !u!1001 &2830953068670086372
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -4671,51 +4671,51 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 348340572439995779, guid: 8fc11af71785b054ab153c9914cf5baa, type: 3}
+    - target: {fileID: 953589571603059075, guid: 8fc11af71785b054ab153c9914cf5baa, type: 3}
       propertyPath: m_RootOrder
       value: 12
       objectReference: {fileID: 0}
-    - target: {fileID: 348340572439995779, guid: 8fc11af71785b054ab153c9914cf5baa, type: 3}
+    - target: {fileID: 953589571603059075, guid: 8fc11af71785b054ab153c9914cf5baa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.7418518
       objectReference: {fileID: 0}
-    - target: {fileID: 348340572439995779, guid: 8fc11af71785b054ab153c9914cf5baa, type: 3}
+    - target: {fileID: 953589571603059075, guid: 8fc11af71785b054ab153c9914cf5baa, type: 3}
       propertyPath: m_LocalPosition.y
       value: -1.8598952
       objectReference: {fileID: 0}
-    - target: {fileID: 348340572439995779, guid: 8fc11af71785b054ab153c9914cf5baa, type: 3}
+    - target: {fileID: 953589571603059075, guid: 8fc11af71785b054ab153c9914cf5baa, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 348340572439995779, guid: 8fc11af71785b054ab153c9914cf5baa, type: 3}
+    - target: {fileID: 953589571603059075, guid: 8fc11af71785b054ab153c9914cf5baa, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 348340572439995779, guid: 8fc11af71785b054ab153c9914cf5baa, type: 3}
+    - target: {fileID: 953589571603059075, guid: 8fc11af71785b054ab153c9914cf5baa, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 348340572439995779, guid: 8fc11af71785b054ab153c9914cf5baa, type: 3}
+    - target: {fileID: 953589571603059075, guid: 8fc11af71785b054ab153c9914cf5baa, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 348340572439995779, guid: 8fc11af71785b054ab153c9914cf5baa, type: 3}
+    - target: {fileID: 953589571603059075, guid: 8fc11af71785b054ab153c9914cf5baa, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 348340572439995779, guid: 8fc11af71785b054ab153c9914cf5baa, type: 3}
+    - target: {fileID: 953589571603059075, guid: 8fc11af71785b054ab153c9914cf5baa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 348340572439995779, guid: 8fc11af71785b054ab153c9914cf5baa, type: 3}
+    - target: {fileID: 953589571603059075, guid: 8fc11af71785b054ab153c9914cf5baa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 348340572439995779, guid: 8fc11af71785b054ab153c9914cf5baa, type: 3}
+    - target: {fileID: 953589571603059075, guid: 8fc11af71785b054ab153c9914cf5baa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3380005479003729933, guid: 8fc11af71785b054ab153c9914cf5baa, type: 3}
+    - target: {fileID: 4862035299496259879, guid: 8fc11af71785b054ab153c9914cf5baa, type: 3}
       propertyPath: m_Name
       value: cowboy_idle_right
       objectReference: {fileID: 0}
@@ -4724,7 +4724,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fc11af71785b054ab153c9914cf5baa, type: 3}
---- !u!1001 &8327652378857233296
+--- !u!1001 &7304647547215495196
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -4732,53 +4732,53 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5909969294939622559, guid: 99315945529320b41bc25d267d1b38e0, type: 3}
+    - target: {fileID: 2072715788222179174, guid: 99315945529320b41bc25d267d1b38e0, type: 3}
+      propertyPath: m_Name
+      value: cowboy_idle_front
+      objectReference: {fileID: 0}
+    - target: {fileID: 7286123880220405340, guid: 99315945529320b41bc25d267d1b38e0, type: 3}
       propertyPath: m_RootOrder
       value: 13
       objectReference: {fileID: 0}
-    - target: {fileID: 5909969294939622559, guid: 99315945529320b41bc25d267d1b38e0, type: 3}
+    - target: {fileID: 7286123880220405340, guid: 99315945529320b41bc25d267d1b38e0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.0490464
+      value: -4.02
       objectReference: {fileID: 0}
-    - target: {fileID: 5909969294939622559, guid: 99315945529320b41bc25d267d1b38e0, type: 3}
+    - target: {fileID: 7286123880220405340, guid: 99315945529320b41bc25d267d1b38e0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.2615805
+      value: -2.28
       objectReference: {fileID: 0}
-    - target: {fileID: 5909969294939622559, guid: 99315945529320b41bc25d267d1b38e0, type: 3}
+    - target: {fileID: 7286123880220405340, guid: 99315945529320b41bc25d267d1b38e0, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5909969294939622559, guid: 99315945529320b41bc25d267d1b38e0, type: 3}
+    - target: {fileID: 7286123880220405340, guid: 99315945529320b41bc25d267d1b38e0, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5909969294939622559, guid: 99315945529320b41bc25d267d1b38e0, type: 3}
+    - target: {fileID: 7286123880220405340, guid: 99315945529320b41bc25d267d1b38e0, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5909969294939622559, guid: 99315945529320b41bc25d267d1b38e0, type: 3}
+    - target: {fileID: 7286123880220405340, guid: 99315945529320b41bc25d267d1b38e0, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5909969294939622559, guid: 99315945529320b41bc25d267d1b38e0, type: 3}
+    - target: {fileID: 7286123880220405340, guid: 99315945529320b41bc25d267d1b38e0, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5909969294939622559, guid: 99315945529320b41bc25d267d1b38e0, type: 3}
+    - target: {fileID: 7286123880220405340, guid: 99315945529320b41bc25d267d1b38e0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5909969294939622559, guid: 99315945529320b41bc25d267d1b38e0, type: 3}
+    - target: {fileID: 7286123880220405340, guid: 99315945529320b41bc25d267d1b38e0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5909969294939622559, guid: 99315945529320b41bc25d267d1b38e0, type: 3}
+    - target: {fileID: 7286123880220405340, guid: 99315945529320b41bc25d267d1b38e0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7564786320475413251, guid: 99315945529320b41bc25d267d1b38e0, type: 3}
-      propertyPath: m_Name
-      value: cowboy_idle_front
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
