@@ -32,6 +32,8 @@ public class NoteSpawner : MonoBehaviour
 
     public void SpawnNote()
     {
-        Instantiate(noteObj, spawnPoint.position, Quaternion.identity);
+        GameObject noteInstance = Instantiate(noteObj, spawnPoint.position, Quaternion.identity);
+        Note noteScript = noteInstance.GetComponent<Note>();
+        noteScript.track = gameObject.tag;
     }
 }

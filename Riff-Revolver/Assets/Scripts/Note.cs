@@ -5,7 +5,7 @@ using UnityEngine;
 public class Note : MonoBehaviour
 {
     public float moveSpeed = 2f;
-    public int trackNumber;
+    public string track;
     private GameObject hitLine;
     private NoteDestroyer noteDestroyer;
     private float hitLineCenter;
@@ -16,10 +16,18 @@ public class Note : MonoBehaviour
     {
         hitLine = GameObject.FindWithTag("HitLine");
         hitLineCenter = hitLine.transform.position.x;
-        destroyKey = KeyCode.Space;
         touching = false;
         scored = false;
         noteDestroyer = hitLine.GetComponent<NoteDestroyer>();
+
+        if (track == "Track1")
+        {
+            destroyKey = KeyCode.W;
+        }
+        else if (track == "Track2")
+        {
+            destroyKey = KeyCode.S;
+        }
     }
 
     void Update()
