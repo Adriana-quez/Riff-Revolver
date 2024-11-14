@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Note : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class Note : MonoBehaviour
     public KeyCode destroyKey;
     public bool touching;
     public bool scored;
+    private SpriteRenderer spriteRenderer;
+    public Sprite barSprite;
     void Start()
     {
         hitLine = GameObject.FindWithTag("HitLine");
@@ -19,14 +22,20 @@ public class Note : MonoBehaviour
         touching = false;
         scored = false;
         noteDestroyer = hitLine.GetComponent<NoteDestroyer>();
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+
+        if (SceneManager.GetActiveScene().name == "BarLevel")
+        {
+            spriteRenderer.sprite = barSprite;
+        }
 
         if (track == "Track1")
         {
-            destroyKey = KeyCode.W;
+            destroyKey = KeyCode.UpArrow;
         }
         else if (track == "Track2")
         {
-            destroyKey = KeyCode.S;
+            destroyKey = KeyCode.DownArrow;
         }
     }
 

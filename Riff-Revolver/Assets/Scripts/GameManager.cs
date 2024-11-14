@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        multiplierText.text = "Multiplier: x" + currentMultiplier;
+        multiplierText.text = "Multiplier: x" + currentMultiplier.ToString();
         scoreText.text = "Score: " + currentScore.ToString();
     }
 
