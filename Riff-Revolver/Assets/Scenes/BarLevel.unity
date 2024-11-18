@@ -384,8 +384,8 @@ MonoBehaviour:
   currentMultiplier: 1
   multiplierTracker: 0
   multiplierThresholds: 0400000008000000100000001a000000
-  scoreText: {fileID: 0}
-  multiplierText: {fileID: 0}
+  scoreText: {fileID: 1928983228}
+  multiplierText: {fileID: 808818769}
 --- !u!4 &71963760
 Transform:
   m_ObjectHideFlags: 0
@@ -5188,6 +5188,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2632579090842790478, guid: 8907c791d67e2ae4aa03f7aa8b897e41, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6877174086827361450, guid: 8907c791d67e2ae4aa03f7aa8b897e41, type: 3}
       propertyPath: m_Name
       value: cowboy_right_shooting
@@ -5348,7 +5352,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1230544814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5636,7 +5640,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1440118210
 Transform:
   m_ObjectHideFlags: 0
