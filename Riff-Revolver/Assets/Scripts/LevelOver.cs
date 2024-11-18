@@ -9,9 +9,10 @@ public class LevelOver : MonoBehaviour
 {
     public GameObject gameOverPanel;
     public TextMeshProUGUI missesText;      
-    public TextMeshProUGUI perfectsText;    
+    public TextMeshProUGUI perfectsText;
+    public TextMeshProUGUI greatsText;
     public TextMeshProUGUI goodsText;       
-    public TextMeshProUGUI multiplierText;
+    public TextMeshProUGUI comboText;
 
     public Image starImage;                 
     public Sprite[] starSprites;
@@ -28,15 +29,16 @@ public class LevelOver : MonoBehaviour
         returnHomeButton.onClick.AddListener(ReturnToHome);
     }
 
-    public void ShowGameOverPanel(int misses, int perfects, int goods, int multiplier, int score)
+    public void ShowGameOverPanel(int misses, int perfects, int greats, int goods, int combo, int score)
     {
         // Enable the panel
         gameOverPanel.SetActive(true);
 
         missesText.text = $"{misses}";
         perfectsText.text = $"{perfects}";
+        greatsText.text = $"{greats}";
         goodsText.text = $"{goods}";
-        multiplierText.text = $"x{multiplier}";
+        comboText.text = $"{combo}";
 
         int starIndex = CalculateStarRating(score);
         starImage.sprite = starSprites[starIndex];

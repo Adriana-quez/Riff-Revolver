@@ -14,7 +14,10 @@ public class Note : MonoBehaviour
     public bool touching;
     public bool scored;
     private SpriteRenderer spriteRenderer;
-    public Sprite barSprite;
+    public Sprite barUpSprite;
+    public Sprite barDownSprite;
+    public GameObject accuracyText;
+    private AccuracyText accuracy;
     void Start()
     {
         hitLine = GameObject.FindWithTag("HitLine");
@@ -23,19 +26,20 @@ public class Note : MonoBehaviour
         scored = false;
         noteDestroyer = hitLine.GetComponent<NoteDestroyer>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        accuracy = accuracyText.GetComponent<AccuracyText>();
 
         if (SceneManager.GetActiveScene().name == "BarLevel")
         {
-            spriteRenderer.sprite = barSprite;
-        }
-
-        if (track == "Track1")
-        {
-            destroyKey = KeyCode.UpArrow;
-        }
-        else if (track == "Track2")
-        {
-            destroyKey = KeyCode.DownArrow;
+            if (track == "Track1")
+            {
+                spriteRenderer.sprite = barUpSprite;
+                destroyKey = KeyCode.UpArrow;
+            }
+            else if (track == "Track2")
+            {
+                spriteRenderer.sprite = barDownSprite;
+                destroyKey = KeyCode.DownArrow;
+            }
         }
     }
 
@@ -49,25 +53,46 @@ public class Note : MonoBehaviour
 
             if (currentNotePosFromCenter <= noteDestroyer.getPerfectTolerance())
             {
+                accuracy.ChangeAccuracyText("perfect");
                 GameManager.Instance.PerfectHit();
             }
-            else if (currentNotePosFromCenter > noteDestroyer.getPerfectTolerance() && currentNotePosFromCenter <= noteDestroyer.getGoodTolerance())
+            else if (currentNotePosFromCenter > noteDestroyer.getPerfectTolerance() && currentNotePosFromCenter <= noteDestroyer.getGreatTolerance())
             {
-                GameManager.Instance.GoodHit();
+                accuracy.ChangeAccuracyText("great");
+                GameManager.Instance.GreatHit();
             }
             else
             {
-                GameManager.Instance.NormalHit();
+                accuracy.ChangeAccuracyText("good");
+                GameManager.Instance.GoodHit();
             }
+
+            // StartCoroutine(showAccuracy());
 
             scored = true;
             Destroy(gameObject);
         }
     }
 
+    //IEnumerator showAccuracy()
+    //{
+    //    Debug.Log("Showing accuracy...");
+    //    Vector2 accuracyTextSpawnPosition = new Vector2(transform.position.x, transform.position.y + 1f);
+    //    Debug.Log("got spawn point...");
+    //    GameObject currentAccuracyText = Instantiate(accuracyText, accuracyTextSpawnPosition, Quaternion.identity);
+    //    Debug.Log("spawned...");
+    //    yield return new WaitForSeconds(1f);
+    //    Debug.Log("waited 1 second...");
+    //    Destroy(currentAccuracyText);
+    //    Debug.Log("Not showing accuracy anymore...");
+    //}
+
     private void OnBecameInvisible()
     {
-        if (!scored) GameManager.Instance.NoteMissed();
+        if (!scored)
+        {
+            GameManager.Instance.NoteMissed();
+        }
         Destroy(gameObject);
     }
 
@@ -81,13 +106,13 @@ public class Note : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        // Debug.Log("Note not touching hit line...");
-        // Debug.Log("Note after trigger exit: " + scored);
         if (other.CompareTag("HitLine"))
         {
             touching = false;
             if (!scored)
             {
+                accuracy.ChangeAccuracyText("miss");
+                // showAccuracy();
                 GameManager.Instance.NoteMissed();
             }
         }

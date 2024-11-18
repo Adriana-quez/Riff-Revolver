@@ -5,42 +5,39 @@ using TMPro;
 
 public class AccuracyText : MonoBehaviour
 {
-    public TextMeshProUGUI accuracyText;  
-    public float changeInterval = 2f;     
+    public TextMeshProUGUI accuracyText;
 
     // RGB values for each state (normalized to 0-1 range)
-    private Color perfectColor = new Color(1f, 0f, 1f);   
-    private Color goodColor = new Color(0f, 1f, 0f);      
-    private Color missColor = new Color(1f, 0f, 0f);     
-    private int currentIndex = 0; 
-
-    void Start()
-    {
-        // Start the repeating change of text and color
-        InvokeRepeating("ChangeAccuracyText", 0f, changeInterval);
-    }
+    private Color goodColor = new Color(1f, 0f, 1f);   
+    private Color greatColor = new Color(0f, 1f, 0f);
+    private Color perfectColor = new Color(0f, 1f, 1f);
+    private Color missColor = new Color(1f, 0f, 0f);
 
     // Method to change the text and color
-    void ChangeAccuracyText()
+    public void ChangeAccuracyText(string state)
     {
-        
-        switch (currentIndex)
+        switch (state)
         {
-            case 0: 
+            case "perfect": 
                 accuracyText.text = "Perfect!";
                 accuracyText.color = perfectColor;
                 break;
-            case 1: 
+            case "great": 
+                accuracyText.text = "Great!";
+                accuracyText.color = greatColor;
+                break;
+            case "good": 
                 accuracyText.text = "Good!";
                 accuracyText.color = goodColor;
                 break;
-            case 2: 
+            case "miss":
+                accuracyText.text = "Miss!";
+                accuracyText.color = missColor;
+                break;
+            default:
                 accuracyText.text = "Miss!";
                 accuracyText.color = missColor;
                 break;
         }
-
-        // Move to the next state (loop back to 0 if at the end)
-        currentIndex = (currentIndex + 1) % 3; 
     }
 }

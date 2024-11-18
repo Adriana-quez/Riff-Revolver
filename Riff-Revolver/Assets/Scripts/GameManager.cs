@@ -8,6 +8,12 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public int currentScore = 0;
+    public int currentCombo = 0;
+    public int perfects = 0;
+    public int greats = 0;
+    public int goods = 0;
+    public int misses = 0;
+
     public int scorePerNote = 100;
     public int scorePerGoodNote = 125;
     public int scorePerPerfectNote = 150;
@@ -19,6 +25,9 @@ public class GameManager : MonoBehaviour
     public TMP_Text scoreText;
     public TMP_Text multiplierText;
 
+    public LevelOver levelOver;
+    public Conductor conductor;
+
     void Start()
     {
         Instance = this;
@@ -28,7 +37,16 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        
+        if (!conductor.getIsSongPlaying())
+        {
+            StartCoroutine("ShowResults");
+        }
+    }
+
+    IEnumerable ShowResults()
+    {
+        yield return new WaitForSeconds(3f);
+        levelOver.ShowGameOverPanel(misses, perfects, greats, goods, currentCombo, currentScore);
     }
 
     public void NoteHit()
@@ -47,16 +65,20 @@ public class GameManager : MonoBehaviour
         scoreText.text = "Score: " + currentScore.ToString();
     }
 
-    public void NormalHit()
+    public void GoodHit()
     {
-        Debug.Log("Normal");
+        Debug.Log("Good");
+        goods++;
+        currentCombo++;
         currentScore += scorePerNote * currentMultiplier;
         NoteHit();
     }
 
-    public void GoodHit()
+    public void GreatHit()
     {
-        Debug.Log("Good");
+        Debug.Log("Great");
+        greats++;
+        currentCombo++;
         currentScore += scorePerGoodNote * currentMultiplier;
         NoteHit();
     }
@@ -64,6 +86,8 @@ public class GameManager : MonoBehaviour
     public void PerfectHit()
     {
         Debug.Log("Perfect");
+        perfects++;
+        currentCombo++;
         currentScore += scorePerPerfectNote * currentMultiplier;
         NoteHit();
     }
@@ -73,6 +97,8 @@ public class GameManager : MonoBehaviour
         Debug.Log("Miss");
         currentMultiplier = 1;
         multiplierTracker = 0;
+        misses++;
+        currentCombo = 0;
 
         multiplierText.text = "Multiplier: x" + currentMultiplier;
     }

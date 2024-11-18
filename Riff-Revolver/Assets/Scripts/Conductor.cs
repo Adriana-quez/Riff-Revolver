@@ -12,12 +12,14 @@ public class Conductor : MonoBehaviour
     public AudioSource musicSource;
     public float firstBeatOffset;
     [SerializeField] private Intervals[] _intervals;
+    public bool isPlaying;
     
     void Start()
     {
         musicSource = GetComponent<AudioSource>();
         dspSongTime = (float)AudioSettings.dspTime;
         musicSource.Play();
+        isPlaying = true;
     }
 
     void Update()
@@ -29,6 +31,11 @@ public class Conductor : MonoBehaviour
         {
             float sampledTime = (musicSource.timeSamples / (musicSource.clip.frequency * interval.GetSecPerBeatInterval(bpm)));
             interval.CheckForNewInterval(sampledTime);
+        }
+
+        if (AudioSettings.dspTime - dspSongTime <= 0)
+        {
+            isPlaying = false;
         }
     }
 
@@ -56,5 +63,10 @@ public class Conductor : MonoBehaviour
                 _trigger.Invoke();
             }
         }
+    }
+
+    public bool getIsSongPlaying()
+    {
+        return isPlaying;
     }
 }

@@ -8,6 +8,8 @@ TagManager:
   - Track1
   - Track2
   - HitLine
+  - ScoreCanvas
+  - Conductor
   layers:
   - Default
   - TransparentFX
