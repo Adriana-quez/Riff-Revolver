@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BarLevel.unity
     guid: 55174f97749182241b69784c4c5390ad
+  - enabled: 1
+    path: Assets/Scenes/IntroCutscene.unity
+    guid: 7d835f3f8d509644d8840a3e49c8a1b0
   m_configObjects: {}

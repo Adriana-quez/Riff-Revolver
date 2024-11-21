@@ -3,14 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Note
-  - Track1
-  - Track2
-  - HitLine
-  - ScoreCanvas
-  - Conductor
-  - AccuracyCanvas
+  tags: []
   layers:
   - Default
   - TransparentFX
