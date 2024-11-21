@@ -10,6 +10,7 @@ TagManager:
   - HitLine
   - ScoreCanvas
   - Conductor
+  - AccuracyCanvas
   layers:
   - Default
   - TransparentFX

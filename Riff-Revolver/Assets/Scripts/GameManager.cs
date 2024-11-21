@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     public int currentScore = 0;
     public int currentCombo = 0;
+    public int highestCombo = 0;
     public int perfects = 0;
     public int greats = 0;
     public int goods = 0;
@@ -26,27 +27,45 @@ public class GameManager : MonoBehaviour
     public TMP_Text multiplierText;
 
     public LevelOver levelOver;
+    private bool isLevelOverPanelCalled;
     public Conductor conductor;
+    public GameObject ScoringCanvas;
+    private AccuracyText accuracy;
+    public GameObject accuracyHolderPrefab;
+    private GameObject accuracyInstance;
 
     void Start()
     {
         Instance = this;
-        scoreText.text = "Score: 0";
-        currentMultiplier = 1;
+        resetValues();
     }
 
     void Update()
     {
-        if (!conductor.getIsSongPlaying())
-        {
-            StartCoroutine("ShowResults");
-        }
+        if (currentCombo >= highestCombo) highestCombo = currentCombo;
+        if (!conductor.getIsSongPlaying() && !isLevelOverPanelCalled) StartCoroutine(ShowResults());
     }
 
-    IEnumerable ShowResults()
+    IEnumerator ShowResults()
     {
-        yield return new WaitForSeconds(3f);
-        levelOver.ShowGameOverPanel(misses, perfects, greats, goods, currentCombo, currentScore);
+        isLevelOverPanelCalled = true;
+        Debug.Log("showing results...");
+        levelOver.ShowGameOverPanel(misses, perfects, greats, goods, highestCombo, currentScore);
+        yield return null;
+    }
+
+    private void resetValues()
+    {
+        scoreText.text = "Score: 0";
+        currentMultiplier = 1;
+        currentScore = 0;
+        currentCombo = 0;
+        highestCombo = 0;
+        perfects = 0;
+        greats = 0;
+        goods = 0;
+        misses = 0;
+        isLevelOverPanelCalled = false;
     }
 
     public void NoteHit()
@@ -65,34 +84,37 @@ public class GameManager : MonoBehaviour
         scoreText.text = "Score: " + currentScore.ToString();
     }
 
-    public void GoodHit()
+    public void GoodHit(Transform notePosition, string track)
     {
         Debug.Log("Good");
         goods++;
         currentCombo++;
         currentScore += scorePerNote * currentMultiplier;
         NoteHit();
+        showAccuracy("good", notePosition, track);
     }
 
-    public void GreatHit()
+    public void GreatHit(Transform notePosition, string track)
     {
         Debug.Log("Great");
         greats++;
         currentCombo++;
         currentScore += scorePerGoodNote * currentMultiplier;
         NoteHit();
+        showAccuracy("great", notePosition, track);
     }
 
-    public void PerfectHit()
+    public void PerfectHit(Transform notePosition, string track)
     {
         Debug.Log("Perfect");
         perfects++;
         currentCombo++;
         currentScore += scorePerPerfectNote * currentMultiplier;
         NoteHit();
+        showAccuracy("perfect", notePosition, track);
     }
 
-    public void NoteMissed()
+    public void NoteMissed(Transform notePosition, string track)
     {
         Debug.Log("Miss");
         currentMultiplier = 1;
@@ -101,5 +123,46 @@ public class GameManager : MonoBehaviour
         currentCombo = 0;
 
         multiplierText.text = "Multiplier: x" + currentMultiplier;
+        showAccuracy("miss", notePosition, track);
+    }
+
+    public void showAccuracy(string state, Transform notePosition, string track)
+    {
+        switch (state)
+        {
+            case "perfect":
+                spawnAndConfigureAccuracy("perfect", notePosition, track);
+                break;
+            case "great":
+                spawnAndConfigureAccuracy("great", notePosition, track);
+                break;
+            case "good":
+                spawnAndConfigureAccuracy("good", notePosition, track);
+                break;
+            case "miss":
+                spawnAndConfigureAccuracy("miss", notePosition, track);
+                break;
+            default:
+                spawnAndConfigureAccuracy("miss", notePosition, track);
+                break;
+        }
+    }
+
+    private void spawnAndConfigureAccuracy(string state, Transform notePosition, string track)
+    {
+        Vector2 accuracyTextSpawnPosition = new Vector2(0, 0);
+
+        if (track == "Track1")
+        {
+            accuracyTextSpawnPosition = new Vector2(notePosition.position.x, notePosition.position.y);
+        }
+        else if (track == "Track2")
+        {
+            accuracyTextSpawnPosition = new Vector2(notePosition.position.x, notePosition.position.y);
+        }
+
+        accuracyInstance = Instantiate(accuracyHolderPrefab, accuracyTextSpawnPosition, Quaternion.identity);
+        accuracy = accuracyInstance.transform.GetChild(0).gameObject.GetComponent<AccuracyText>();
+        accuracy.ChangeAccuracyText(state);
     }
 }

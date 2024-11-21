@@ -16,8 +16,6 @@ public class Note : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     public Sprite barUpSprite;
     public Sprite barDownSprite;
-    public GameObject accuracyText;
-    private AccuracyText accuracy;
     void Start()
     {
         hitLine = GameObject.FindWithTag("HitLine");
@@ -26,7 +24,6 @@ public class Note : MonoBehaviour
         scored = false;
         noteDestroyer = hitLine.GetComponent<NoteDestroyer>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        accuracy = accuracyText.GetComponent<AccuracyText>();
 
         if (SceneManager.GetActiveScene().name == "BarLevel")
         {
@@ -53,46 +50,24 @@ public class Note : MonoBehaviour
 
             if (currentNotePosFromCenter <= noteDestroyer.getPerfectTolerance())
             {
-                accuracy.ChangeAccuracyText("perfect");
-                GameManager.Instance.PerfectHit();
+                GameManager.Instance.PerfectHit(transform, track);
             }
             else if (currentNotePosFromCenter > noteDestroyer.getPerfectTolerance() && currentNotePosFromCenter <= noteDestroyer.getGreatTolerance())
             {
-                accuracy.ChangeAccuracyText("great");
-                GameManager.Instance.GreatHit();
+                GameManager.Instance.GreatHit(transform, track);
             }
             else
             {
-                accuracy.ChangeAccuracyText("good");
-                GameManager.Instance.GoodHit();
+                GameManager.Instance.GoodHit(transform, track);
             }
-
-            // StartCoroutine(showAccuracy());
 
             scored = true;
             Destroy(gameObject);
         }
     }
 
-    //IEnumerator showAccuracy()
-    //{
-    //    Debug.Log("Showing accuracy...");
-    //    Vector2 accuracyTextSpawnPosition = new Vector2(transform.position.x, transform.position.y + 1f);
-    //    Debug.Log("got spawn point...");
-    //    GameObject currentAccuracyText = Instantiate(accuracyText, accuracyTextSpawnPosition, Quaternion.identity);
-    //    Debug.Log("spawned...");
-    //    yield return new WaitForSeconds(1f);
-    //    Debug.Log("waited 1 second...");
-    //    Destroy(currentAccuracyText);
-    //    Debug.Log("Not showing accuracy anymore...");
-    //}
-
     private void OnBecameInvisible()
     {
-        if (!scored)
-        {
-            GameManager.Instance.NoteMissed();
-        }
         Destroy(gameObject);
     }
 
@@ -111,9 +86,7 @@ public class Note : MonoBehaviour
             touching = false;
             if (!scored)
             {
-                accuracy.ChangeAccuracyText("miss");
-                // showAccuracy();
-                GameManager.Instance.NoteMissed();
+                GameManager.Instance.NoteMissed(transform, track);
             }
         }
     }

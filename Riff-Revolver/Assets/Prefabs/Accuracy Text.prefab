@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8803470515726261790}
   - component: {fileID: 7743730608996761780}
   - component: {fileID: 3344545948957300513}
+  - component: {fileID: 6266994717215518553}
   m_Layer: 5
   m_Name: Accuracy Text
   m_TagString: Untagged
@@ -67,7 +68,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Good!
+  m_text: Miss!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c194007b2d6a39b4283c8d42828fa5df, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 1349a0987f6e1d84cb7bf6f29fa80b99, type: 2}
@@ -77,7 +78,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294902015
-  m_fontColor: {r: 1, g: 0, b: 1, a: 1}
+  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -94,8 +95,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 33
-  m_fontSizeBase: 33
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -149,3 +150,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   accuracyText: {fileID: 7743730608996761780}
+--- !u!95 &6266994717215518553
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4029440844439619205}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: efddcdef9e677954c83c54528aef7465, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

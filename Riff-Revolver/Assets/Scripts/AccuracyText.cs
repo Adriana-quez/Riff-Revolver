@@ -40,4 +40,10 @@ public class AccuracyText : MonoBehaviour
                 break;
         }
     }
+
+    public void DestroyParent()
+    {
+        GameObject parent = gameObject.transform.parent.gameObject;
+        Destroy(parent);
+    }
 }

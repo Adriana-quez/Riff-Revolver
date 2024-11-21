@@ -13,6 +13,7 @@ public class LevelOver : MonoBehaviour
     public TextMeshProUGUI greatsText;
     public TextMeshProUGUI goodsText;       
     public TextMeshProUGUI comboText;
+    public TextMeshProUGUI scoreText;
 
     public Image starImage;                 
     public Sprite[] starSprites;
@@ -34,6 +35,7 @@ public class LevelOver : MonoBehaviour
         // Enable the panel
         gameOverPanel.SetActive(true);
 
+        scoreText.text = "Score: " + $"{score}";
         missesText.text = $"{misses}";
         perfectsText.text = $"{perfects}";
         greatsText.text = $"{greats}";

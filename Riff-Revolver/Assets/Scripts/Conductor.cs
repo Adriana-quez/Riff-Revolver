@@ -33,7 +33,7 @@ public class Conductor : MonoBehaviour
             interval.CheckForNewInterval(sampledTime);
         }
 
-        if (AudioSettings.dspTime - dspSongTime <= 0)
+        if (!musicSource.isPlaying)
         {
             isPlaying = false;
         }
