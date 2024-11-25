@@ -7,6 +7,8 @@ TagManager:
   - Note
   - Track1
   - Track2
+  - HitLine
+  - BGMusic
   layers:
   - Default
   - TransparentFX

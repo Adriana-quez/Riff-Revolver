@@ -10,9 +10,9 @@ public class TextAnimator : MonoBehaviour
     TMP_Text _tmpProText;
     string writer;
     
-    //[SerializeField] GameObject backBox;
-    //[SerializeField] TMP_Text charName;
     [SerializeField] TMP_Text nextTMPText;
+    public AudioClip mayorReact;
+    private AudioSource mayorAudio;
 
     [SerializeField] float delayBeforeStart = 0f;
     [SerializeField] float timeBtwChars = 0.1f;
@@ -32,7 +32,12 @@ public class TextAnimator : MonoBehaviour
 
             StartCoroutine("TypeWriterTMP");
         }
-        
+
+        if (mayorReact != null) {
+            mayorAudio = gameObject.AddComponent<AudioSource>();
+            new WaitForSeconds(4f);
+            mayorAudio.PlayOneShot(mayorReact);
+        }
     }
 
     IEnumerator TypeWriterTMP() {
@@ -61,7 +66,7 @@ public class TextAnimator : MonoBehaviour
 
     void Update() {
         if (Input.GetMouseButton(0)) {
-            timeBtwChars = 0.0001f;
+            timeBtwChars = 0.00001f;
         }
 
         if (nextTMPText != null) {
