@@ -6,11 +6,11 @@ using TMPro;
 
 public class TextAnimator : MonoBehaviour
 {
-    Text _text;
-    TMP_Text _tmpProText;
+    Text dialogue;
+    TMP_Text tmpProDialogue;
     string writer;
     
-    [SerializeField] TMP_Text nextTMPText;
+    [SerializeField] TMP_Text nextTMPDialogue;
     public AudioClip mayorReact;
     private AudioSource mayorAudio;
 
@@ -23,12 +23,12 @@ public class TextAnimator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _text = GetComponent<Text>();
-        _tmpProText = GetComponent<TMP_Text>();
+        dialogue = GetComponent<Text>();
+        tmpProDialogue = GetComponent<TMP_Text>();
 
         if (nextBut != null) {
-            writer = _tmpProText.text;
-            _tmpProText.text = "";
+            writer = tmpProDialogue.text;
+            tmpProDialogue.text = "";
 
             StartCoroutine("TypeWriterTMP");
         }
@@ -41,22 +41,22 @@ public class TextAnimator : MonoBehaviour
     }
 
     IEnumerator TypeWriterTMP() {
-        _tmpProText.text = leadingCharBeforeDelay ? leadingChar : "";
+        tmpProDialogue.text = leadingCharBeforeDelay ? leadingChar : "";
 
         yield return new WaitForSeconds(delayBeforeStart);
 
         foreach (char c in writer) {
-            if (_tmpProText.text.Length > 0) {
-                _tmpProText.text = _tmpProText.text.Substring(0, _tmpProText.text.Length - leadingChar.Length);
+            if (tmpProDialogue.text.Length > 0) {
+                tmpProDialogue.text = tmpProDialogue.text.Substring(0, tmpProDialogue.text.Length - leadingChar.Length);
             }
 
-            _tmpProText.text += c;
-            _tmpProText.text += leadingChar;
+            tmpProDialogue.text += c;
+            tmpProDialogue.text += leadingChar;
             yield return new WaitForSeconds(timeBtwChars);
         }
 
         if (leadingChar != "") {
-            _tmpProText.text = _tmpProText.text.Substring(0, _tmpProText.text.Length - leadingChar.Length);
+            tmpProDialogue.text = tmpProDialogue.text.Substring(0, tmpProDialogue.text.Length - leadingChar.Length);
         }
 
         if (nextBut != null) {
@@ -66,17 +66,17 @@ public class TextAnimator : MonoBehaviour
 
     void Update() {
         if (Input.GetMouseButton(0)) {
-            timeBtwChars = 0.00001f;
+            timeBtwChars = 0f;
         }
 
-        if (nextTMPText != null) {
+        if (nextTMPDialogue != null) {
             nextBut.onClick.AddListener(NextDialogue);
         }
     }
 
     void NextDialogue() {
-        nextTMPText.gameObject.SetActive(true);
-        _tmpProText.gameObject.SetActive(false);
+        nextTMPDialogue.gameObject.SetActive(true);
+        tmpProDialogue.gameObject.SetActive(false);
         nextBut.gameObject.SetActive(false);
     }
 }
