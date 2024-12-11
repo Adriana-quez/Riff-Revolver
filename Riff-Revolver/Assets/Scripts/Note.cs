@@ -10,11 +10,16 @@ public class Note : MonoBehaviour
     private GameObject hitLine;
     private NoteDestroyer noteDestroyer;
     private float hitLineCenter;
-    public KeyCode destroyKey;
+    public KeyCode[] destroyKeys;
     public bool touching;
     public bool scored;
     private SpriteRenderer spriteRenderer;
-    public Sprite barSprite;
+    public Sprite barUpSprite;
+    public Sprite barDownSprite;
+    public Conductor conductor;
+    public bool isLastNote = false;
+    private bool isFirstNoteHit = false;
+
     void Start()
     {
         hitLine = GameObject.FindWithTag("HitLine");
@@ -23,19 +28,20 @@ public class Note : MonoBehaviour
         scored = false;
         noteDestroyer = hitLine.GetComponent<NoteDestroyer>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        conductor = FindObjectOfType<Conductor>();
 
         if (SceneManager.GetActiveScene().name == "BarLevel")
         {
-            spriteRenderer.sprite = barSprite;
-        }
-
-        if (track == "Track1")
-        {
-            destroyKey = KeyCode.UpArrow;
-        }
-        else if (track == "Track2")
-        {
-            destroyKey = KeyCode.DownArrow;
+            if (track == "Track1")
+            {
+                spriteRenderer.sprite = barUpSprite;
+                destroyKeys = new KeyCode[] { KeyCode.UpArrow, KeyCode.W };
+            }
+            else if (track == "Track2")
+            {
+                spriteRenderer.sprite = barDownSprite;
+                destroyKeys = new KeyCode[] { KeyCode.DownArrow, KeyCode.S };
+            }
         }
     }
 
@@ -43,31 +49,54 @@ public class Note : MonoBehaviour
     {
         transform.Translate(Vector2.left * moveSpeed * Time.deltaTime);
 
-        if (Input.GetKeyDown(destroyKey) && touching)
+        if (CheckDestroyKeyPressed() && touching)
         {
             float currentNotePosFromCenter = Mathf.Abs(transform.position.x - hitLineCenter);
+
+            if (!isFirstNoteHit)
+            {
+                isFirstNoteHit = true;
+                GameManager.Instance.EnableAccuracy();
+            }
 
             if (currentNotePosFromCenter <= noteDestroyer.getPerfectTolerance())
             {
                 GameManager.Instance.PerfectHit();
             }
-            else if (currentNotePosFromCenter > noteDestroyer.getPerfectTolerance() && currentNotePosFromCenter <= noteDestroyer.getGoodTolerance())
+            else if (currentNotePosFromCenter > noteDestroyer.getPerfectTolerance() && currentNotePosFromCenter <= noteDestroyer.getGreatTolerance())
             {
-                GameManager.Instance.GoodHit();
+                GameManager.Instance.GreatHit();
             }
             else
             {
-                GameManager.Instance.NormalHit();
+                GameManager.Instance.GoodHit();
             }
 
+            conductor.DecrementActiveNotes();
+            if (isLastNote)
+            {
+                conductor.MarkBeatmapComplete();
+            }
             scored = true;
             Destroy(gameObject);
         }
     }
 
+    private bool CheckDestroyKeyPressed()
+    {
+        foreach (KeyCode key in destroyKeys)
+        {
+            if (Input.GetKeyDown(key))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
     private void OnBecameInvisible()
     {
-        if (!scored) GameManager.Instance.NoteMissed();
         Destroy(gameObject);
     }
 
@@ -81,13 +110,16 @@ public class Note : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        // Debug.Log("Note not touching hit line...");
-        // Debug.Log("Note after trigger exit: " + scored);
         if (other.CompareTag("HitLine"))
         {
             touching = false;
             if (!scored)
             {
+                if (!isFirstNoteHit)
+                {
+                    isFirstNoteHit = true;
+                    GameManager.Instance.EnableAccuracy();
+                }
                 GameManager.Instance.NoteMissed();
             }
         }
