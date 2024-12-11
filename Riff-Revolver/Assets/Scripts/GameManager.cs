@@ -24,18 +24,23 @@ public class GameManager : MonoBehaviour
     public int[] multiplierThresholds;
 
     public TMP_Text scoreText;
-    public TMP_Text multiplierText;
+    public GameObject accuracyText;
+    private AccuracyText accuracyTextScript;
+    //public TMP_Text multiplierText;
+    public TMP_Text comboText;
 
     public LevelOver levelOver;
     private bool isLevelOverPanelCalled;
     public Conductor conductor;
     public GameObject ScoringCanvas;
-    private AccuracyText accuracy;
-    public GameObject accuracyHolderPrefab;
-    private GameObject accuracyInstance;
+    //private AccuracyText accuracy;
+    //public GameObject accuracyHolderPrefab;
+    //private GameObject accuracyInstance;
 
     void Start()
     {
+        accuracyTextScript = accuracyText.GetComponent<AccuracyText>();
+        accuracyText.SetActive(false);
         Instance = this;
         resetValues();
     }
@@ -43,15 +48,19 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         if (currentCombo >= highestCombo) highestCombo = currentCombo;
-        if (!conductor.getIsSongPlaying() && !isLevelOverPanelCalled) StartCoroutine(ShowResults());
+        if (conductor.GetBeatMapOver() && !isLevelOverPanelCalled) StartCoroutine(ShowResults());
+    }
+
+    public void EnableAccuracy()
+    {
+        accuracyText.SetActive(true);
     }
 
     IEnumerator ShowResults()
     {
         isLevelOverPanelCalled = true;
-        Debug.Log("showing results...");
+        yield return new WaitForSeconds(2f);
         levelOver.ShowGameOverPanel(misses, perfects, greats, goods, highestCombo, currentScore);
-        yield return null;
     }
 
     private void resetValues()
@@ -80,41 +89,48 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        multiplierText.text = "Multiplier: x" + currentMultiplier.ToString();
+        //multiplierText.text = "Multiplier: x" + currentMultiplier.ToString();
+        comboText.text = "Combo: " + currentCombo.ToString();
         scoreText.text = "Score: " + currentScore.ToString();
     }
 
-    public void GoodHit(Transform notePosition, string track)
+    public void GoodHit()
     {
         Debug.Log("Good");
         goods++;
         currentCombo++;
         currentScore += scorePerNote * currentMultiplier;
         NoteHit();
-        showAccuracy("good", notePosition, track);
+        //showAccuracy("good", notePosition, track);
+        accuracyTextScript.ChangeAccuracyText("good");
+        accuracyTextScript.StartPulse();
     }
 
-    public void GreatHit(Transform notePosition, string track)
+    public void GreatHit()
     {
         Debug.Log("Great");
         greats++;
         currentCombo++;
         currentScore += scorePerGoodNote * currentMultiplier;
         NoteHit();
-        showAccuracy("great", notePosition, track);
+        //showAccuracy("great", notePosition, track);
+        accuracyTextScript.ChangeAccuracyText("great");
+        accuracyTextScript.StartPulse();
     }
 
-    public void PerfectHit(Transform notePosition, string track)
+    public void PerfectHit()
     {
         Debug.Log("Perfect");
         perfects++;
         currentCombo++;
         currentScore += scorePerPerfectNote * currentMultiplier;
         NoteHit();
-        showAccuracy("perfect", notePosition, track);
+        //showAccuracy("perfect", notePosition, track);
+        accuracyTextScript.ChangeAccuracyText("perfect");
+        accuracyTextScript.StartPulse();
     }
 
-    public void NoteMissed(Transform notePosition, string track)
+    public void NoteMissed()
     {
         Debug.Log("Miss");
         currentMultiplier = 1;
@@ -122,11 +138,14 @@ public class GameManager : MonoBehaviour
         misses++;
         currentCombo = 0;
 
-        multiplierText.text = "Multiplier: x" + currentMultiplier;
-        showAccuracy("miss", notePosition, track);
+        //multiplierText.text = "Multiplier: x" + currentMultiplier;
+        comboText.text = "Combo: " + currentCombo.ToString();
+        //showAccuracy("miss", notePosition, track);
+        accuracyTextScript.ChangeAccuracyText("miss");
+        accuracyTextScript.StartPulse();
     }
 
-    public void showAccuracy(string state, Transform notePosition, string track)
+    /*public void showAccuracy(string state, Transform notePosition, string track)
     {
         switch (state)
         {
@@ -164,5 +183,5 @@ public class GameManager : MonoBehaviour
         accuracyInstance = Instantiate(accuracyHolderPrefab, accuracyTextSpawnPosition, Quaternion.identity);
         accuracy = accuracyInstance.transform.GetChild(0).gameObject.GetComponent<AccuracyText>();
         accuracy.ChangeAccuracyText(state);
-    }
+    }*/
 }

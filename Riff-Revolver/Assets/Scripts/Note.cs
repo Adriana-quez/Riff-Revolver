@@ -10,12 +10,16 @@ public class Note : MonoBehaviour
     private GameObject hitLine;
     private NoteDestroyer noteDestroyer;
     private float hitLineCenter;
-    public KeyCode destroyKey;
+    public KeyCode[] destroyKeys;
     public bool touching;
     public bool scored;
     private SpriteRenderer spriteRenderer;
     public Sprite barUpSprite;
     public Sprite barDownSprite;
+    public Conductor conductor;
+    public bool isLastNote = false;
+    private bool isFirstNoteHit = false;
+
     void Start()
     {
         hitLine = GameObject.FindWithTag("HitLine");
@@ -24,18 +28,19 @@ public class Note : MonoBehaviour
         scored = false;
         noteDestroyer = hitLine.GetComponent<NoteDestroyer>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        conductor = FindObjectOfType<Conductor>();
 
         if (SceneManager.GetActiveScene().name == "BarLevel")
         {
             if (track == "Track1")
             {
                 spriteRenderer.sprite = barUpSprite;
-                destroyKey = KeyCode.UpArrow;
+                destroyKeys = new KeyCode[] { KeyCode.UpArrow, KeyCode.W };
             }
             else if (track == "Track2")
             {
                 spriteRenderer.sprite = barDownSprite;
-                destroyKey = KeyCode.DownArrow;
+                destroyKeys = new KeyCode[] { KeyCode.DownArrow, KeyCode.S };
             }
         }
     }
@@ -44,27 +49,51 @@ public class Note : MonoBehaviour
     {
         transform.Translate(Vector2.left * moveSpeed * Time.deltaTime);
 
-        if (Input.GetKeyDown(destroyKey) && touching)
+        if (CheckDestroyKeyPressed() && touching)
         {
             float currentNotePosFromCenter = Mathf.Abs(transform.position.x - hitLineCenter);
 
+            if (!isFirstNoteHit)
+            {
+                isFirstNoteHit = true;
+                GameManager.Instance.EnableAccuracy();
+            }
+
             if (currentNotePosFromCenter <= noteDestroyer.getPerfectTolerance())
             {
-                GameManager.Instance.PerfectHit(transform, track);
+                GameManager.Instance.PerfectHit();
             }
             else if (currentNotePosFromCenter > noteDestroyer.getPerfectTolerance() && currentNotePosFromCenter <= noteDestroyer.getGreatTolerance())
             {
-                GameManager.Instance.GreatHit(transform, track);
+                GameManager.Instance.GreatHit();
             }
             else
             {
-                GameManager.Instance.GoodHit(transform, track);
+                GameManager.Instance.GoodHit();
             }
 
+            conductor.DecrementActiveNotes();
+            if (isLastNote)
+            {
+                conductor.MarkBeatmapComplete();
+            }
             scored = true;
             Destroy(gameObject);
         }
     }
+
+    private bool CheckDestroyKeyPressed()
+    {
+        foreach (KeyCode key in destroyKeys)
+        {
+            if (Input.GetKeyDown(key))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     private void OnBecameInvisible()
     {
@@ -86,7 +115,12 @@ public class Note : MonoBehaviour
             touching = false;
             if (!scored)
             {
-                GameManager.Instance.NoteMissed(transform, track);
+                if (!isFirstNoteHit)
+                {
+                    isFirstNoteHit = true;
+                    GameManager.Instance.EnableAccuracy();
+                }
+                GameManager.Instance.NoteMissed();
             }
         }
     }

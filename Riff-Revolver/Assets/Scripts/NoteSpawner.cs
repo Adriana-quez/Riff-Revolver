@@ -35,5 +35,10 @@ public class NoteSpawner : MonoBehaviour
         GameObject noteInstance = Instantiate(noteObj, spawnPoint.position, Quaternion.identity);
         Note noteScript = noteInstance.GetComponent<Note>();
         noteScript.track = gameObject.tag;
+        conductor.IncrementActiveNotes();
+        if (spawnIndex == spawnTimesInBeats.Length - 1)
+        {
+            noteScript.isLastNote = true;
+        }
     }
 }

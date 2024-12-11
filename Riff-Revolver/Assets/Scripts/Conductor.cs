@@ -13,6 +13,8 @@ public class Conductor : MonoBehaviour
     public float firstBeatOffset;
     [SerializeField] private Intervals[] _intervals;
     public bool isPlaying;
+    private int activeNotes;
+    public bool beatmapOver;
     
     void Start()
     {
@@ -20,6 +22,8 @@ public class Conductor : MonoBehaviour
         dspSongTime = (float)AudioSettings.dspTime;
         musicSource.Play();
         isPlaying = true;
+        activeNotes = 0; 
+        beatmapOver = false;
     }
 
     void Update()
@@ -65,8 +69,28 @@ public class Conductor : MonoBehaviour
         }
     }
 
+    public void MarkBeatmapComplete()
+    {
+        beatmapOver = true;
+    }
+
+    public void IncrementActiveNotes()
+    {
+        activeNotes++;
+    }
+
+    public void DecrementActiveNotes()
+    {
+        activeNotes--;
+    }
+
     public bool getIsSongPlaying()
     {
         return isPlaying;
+    }
+
+    public bool GetBeatMapOver()
+    {
+        return beatmapOver;
     }
 }
