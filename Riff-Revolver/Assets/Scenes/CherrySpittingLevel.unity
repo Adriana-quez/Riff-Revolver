@@ -1045,59 +1045,59 @@ PrefabInstance:
       objectReference: {fileID: 245782696}
     - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
       propertyPath: spawnTimesInBeats.Array.size
-      value: 17
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
       propertyPath: spawnTimesInBeats.Array.data[0]
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
       propertyPath: spawnTimesInBeats.Array.data[1]
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
-      propertyPath: spawnTimesInBeats.Array.data[2]
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
-      propertyPath: spawnTimesInBeats.Array.data[3]
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
-      propertyPath: spawnTimesInBeats.Array.data[4]
       value: 11
       objectReference: {fileID: 0}
     - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
-      propertyPath: spawnTimesInBeats.Array.data[5]
-      value: 12.5
+      propertyPath: spawnTimesInBeats.Array.data[2]
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
-      propertyPath: spawnTimesInBeats.Array.data[6]
-      value: 13
+      propertyPath: spawnTimesInBeats.Array.data[3]
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
-      propertyPath: spawnTimesInBeats.Array.data[7]
+      propertyPath: spawnTimesInBeats.Array.data[4]
       value: 16
       objectReference: {fileID: 0}
     - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
+      propertyPath: spawnTimesInBeats.Array.data[5]
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
+      propertyPath: spawnTimesInBeats.Array.data[6]
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
+      propertyPath: spawnTimesInBeats.Array.data[7]
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
       propertyPath: spawnTimesInBeats.Array.data[8]
-      value: 20.75
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
       propertyPath: spawnTimesInBeats.Array.data[9]
-      value: 25
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
       propertyPath: spawnTimesInBeats.Array.data[10]
-      value: 27
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
       propertyPath: spawnTimesInBeats.Array.data[11]
-      value: 29
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
       propertyPath: spawnTimesInBeats.Array.data[12]
-      value: 31
+      value: 33
       objectReference: {fileID: 0}
     - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
       propertyPath: spawnTimesInBeats.Array.data[13]
@@ -1105,15 +1105,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
       propertyPath: spawnTimesInBeats.Array.data[14]
-      value: 36
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
       propertyPath: spawnTimesInBeats.Array.data[15]
-      value: 37.5
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
       propertyPath: spawnTimesInBeats.Array.data[16]
-      value: 38.5
+      value: 37
+      objectReference: {fileID: 0}
+    - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
+      propertyPath: spawnTimesInBeats.Array.data[17]
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 5494750642291403918, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
       propertyPath: m_RootOrder
@@ -4587,7 +4591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19507589d8a231f4c90555a46a707106, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bpm: 80
+  bpm: 85
   songPosition: 0
   songPositionInBeats: 0
   dspSongTime: 0
@@ -4622,7 +4626,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: dc31b66d4857979479e22efaa4fe1fc0, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 026d6bc0b8b32f142b20dc4adeacf4b5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
@@ -8428,59 +8432,75 @@ PrefabInstance:
       objectReference: {fileID: 1854953978}
     - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
       propertyPath: spawnTimesInBeats.Array.size
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
-      propertyPath: spawnTimesInBeats.Array.data[0]
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
-      propertyPath: spawnTimesInBeats.Array.data[1]
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
-      propertyPath: spawnTimesInBeats.Array.data[2]
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
-      propertyPath: spawnTimesInBeats.Array.data[3]
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
-      propertyPath: spawnTimesInBeats.Array.data[4]
-      value: 16.5
-      objectReference: {fileID: 0}
-    - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
-      propertyPath: spawnTimesInBeats.Array.data[5]
       value: 17
       objectReference: {fileID: 0}
     - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
+      propertyPath: spawnTimesInBeats.Array.data[0]
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
+      propertyPath: spawnTimesInBeats.Array.data[1]
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
+      propertyPath: spawnTimesInBeats.Array.data[2]
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
+      propertyPath: spawnTimesInBeats.Array.data[3]
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
+      propertyPath: spawnTimesInBeats.Array.data[4]
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
+      propertyPath: spawnTimesInBeats.Array.data[5]
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
       propertyPath: spawnTimesInBeats.Array.data[6]
-      value: 20.5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
       propertyPath: spawnTimesInBeats.Array.data[7]
-      value: 21
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
       propertyPath: spawnTimesInBeats.Array.data[8]
-      value: 33
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
       propertyPath: spawnTimesInBeats.Array.data[9]
-      value: 35
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
       propertyPath: spawnTimesInBeats.Array.data[10]
-      value: 37
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
       propertyPath: spawnTimesInBeats.Array.data[11]
-      value: 38
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
       propertyPath: spawnTimesInBeats.Array.data[12]
-      value: 39
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
+      propertyPath: spawnTimesInBeats.Array.data[13]
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
+      propertyPath: spawnTimesInBeats.Array.data[14]
+      value: 37
+      objectReference: {fileID: 0}
+    - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
+      propertyPath: spawnTimesInBeats.Array.data[15]
+      value: 38
+      objectReference: {fileID: 0}
+    - target: {fileID: -7084049217536014796, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
+      propertyPath: spawnTimesInBeats.Array.data[16]
+      value: 41
       objectReference: {fileID: 0}
     - target: {fileID: 5494750642291403918, guid: 2d35941772085dc42944872b6a3fa6bf, type: 3}
       propertyPath: m_RootOrder

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEditor;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -48,7 +49,11 @@ public class PauseMenu : MonoBehaviour
 
     public void Quit()
     {
-        Application.Quit();
+        if (EditorApplication.isPlaying) {
+            EditorApplication.isPlaying = false;
+        } else {
+            Application.Quit();
+        }
     }
 
 }
