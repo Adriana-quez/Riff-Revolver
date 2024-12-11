@@ -1423,9 +1423,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Use your up and down arrow keys to dodge items as they approach ye ole
-    white fightin line. Up arrow is for items on the top of the page, and down is
-    for items on the bottom.
+  m_text: Use your up and down arrow keys or W and S to dodge items as they approach
+    ye ole white fightin line. Up arrow is for items on the top of the page, and
+    down is for items on the bottom.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c194007b2d6a39b4283c8d42828fa5df, type: 2}
   m_sharedMaterial: {fileID: 1155680486142404330, guid: c194007b2d6a39b4283c8d42828fa5df, type: 2}
