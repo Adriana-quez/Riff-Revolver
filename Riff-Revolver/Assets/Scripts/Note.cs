@@ -18,7 +18,6 @@ public class Note : MonoBehaviour
     public Sprite barDownSprite;
     public Conductor conductor;
     public bool isLastNote = false;
-    private bool isFirstNoteHit = false;
 
     void Start()
     {
