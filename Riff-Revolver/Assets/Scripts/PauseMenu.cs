@@ -49,11 +49,12 @@ public class PauseMenu : MonoBehaviour
 
     public void Quit()
     {
-        if (EditorApplication.isPlaying) {
+        Application.Quit();
+        /*if (EditorApplication.isPlaying) {
             EditorApplication.isPlaying = false;
         } else {
             Application.Quit();
-        }
+        }*/
     }
 
 }
