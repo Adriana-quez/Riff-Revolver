@@ -33,6 +33,7 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void Restart(){
+        GameManager.Instance.resetValues();
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }

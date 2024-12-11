@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
         levelOver.ShowGameOverPanel(misses, perfects, greats, goods, highestCombo, currentScore);
     }
 
-    private void resetValues()
+    public void resetValues()
     {
         scoreText.text = "Score: 0";
         currentMultiplier = 1;
