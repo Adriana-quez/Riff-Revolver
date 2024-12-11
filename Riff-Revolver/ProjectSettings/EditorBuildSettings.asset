@@ -23,4 +23,28 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/IntroCutscene.unity
     guid: 7d835f3f8d509644d8840a3e49c8a1b0
+  - enabled: 1
+    path: Assets/Scenes/CherryIntroScene.unity
+    guid: b0d67be780759934b876672e41784f4e
+  - enabled: 1
+    path: Assets/Scenes/BarIntroScene.unity
+    guid: 683fb460a0518b54fae09e7d2e17ee32
+  - enabled: 1
+    path: Assets/Scenes/CherrySpittingLevel.unity
+    guid: 422f5745da1449e4e8f05aab090af0c2
+  - enabled: 1
+    path: Assets/Scenes/DualIntroScene.unity
+    guid: d2dc2260bd5b5dc4990aa99eee92a85a
+  - enabled: 1
+    path: Assets/Scenes/DuelLevel.unity
+    guid: d6e33b047f9fa9a499fd90eb88428736
+  - enabled: 1
+    path: Assets/Scenes/SecondCutscene.unity
+    guid: ef4bd45ac72f6c8409465f364e91634b
+  - enabled: 1
+    path: Assets/Scenes/ThirdCutscene.unity
+    guid: 1050e0ab8f3640b49bcbb6eafc0b977b
+  - enabled: 1
+    path: Assets/Scenes/FinalCutscene.unity
+    guid: 89079571b6e72d34aae11dece0848b63
   m_configObjects: {}

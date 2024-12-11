@@ -9,6 +9,7 @@ public class TextAnimator : MonoBehaviour
     Text dialogue;
     TMP_Text tmpProDialogue;
     string writer;
+    Coroutine animateText;
     
     [SerializeField] TMP_Text nextTMPDialogue;
     public AudioClip mayorReact;
@@ -30,7 +31,7 @@ public class TextAnimator : MonoBehaviour
             writer = tmpProDialogue.text;
             tmpProDialogue.text = "";
 
-            StartCoroutine("TypeWriterTMP");
+            animateText = StartCoroutine("TypeWriterTMP");
         }
 
         if (mayorReact != null) {
@@ -66,7 +67,9 @@ public class TextAnimator : MonoBehaviour
 
     void Update() {
         if (Input.GetMouseButton(0)) {
-            timeBtwChars = 0f;
+            StopCoroutine(animateText);
+            tmpProDialogue.text = writer;
+            nextBut.gameObject.SetActive(true);
         }
 
         if (nextTMPDialogue != null) {
