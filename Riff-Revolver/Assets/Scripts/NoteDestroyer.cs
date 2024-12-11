@@ -7,12 +7,12 @@ public class NoteDestroyer : MonoBehaviour
 {
     private static float hitLineCenter;
     public float perfectTolerance;
-    public float goodTolerance;
+    public float greatTolerance;
     void Start()
     {
         hitLineCenter = transform.position.x;
         perfectTolerance = Mathf.Abs(0.03f * hitLineCenter);
-        goodTolerance = Mathf.Abs(0.05f * hitLineCenter);
+        greatTolerance = Mathf.Abs(0.05f * hitLineCenter);
     }
 
     void Update()
@@ -21,5 +21,5 @@ public class NoteDestroyer : MonoBehaviour
     }
 
     public float getPerfectTolerance() { return perfectTolerance; }
-    public float getGoodTolerance() { return goodTolerance; }
+    public float getGreatTolerance() { return greatTolerance; }
 }

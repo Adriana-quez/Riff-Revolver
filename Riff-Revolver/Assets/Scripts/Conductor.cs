@@ -12,12 +12,18 @@ public class Conductor : MonoBehaviour
     public AudioSource musicSource;
     public float firstBeatOffset;
     [SerializeField] private Intervals[] _intervals;
+    public bool isPlaying;
+    private int activeNotes;
+    public bool beatmapOver;
     
     void Start()
     {
         musicSource = GetComponent<AudioSource>();
         dspSongTime = (float)AudioSettings.dspTime;
         musicSource.Play();
+        isPlaying = true;
+        activeNotes = 0; 
+        beatmapOver = false;
     }
 
     void Update()
@@ -29,6 +35,11 @@ public class Conductor : MonoBehaviour
         {
             float sampledTime = (musicSource.timeSamples / (musicSource.clip.frequency * interval.GetSecPerBeatInterval(bpm)));
             interval.CheckForNewInterval(sampledTime);
+        }
+
+        if (!musicSource.isPlaying)
+        {
+            isPlaying = false;
         }
     }
 
@@ -56,5 +67,30 @@ public class Conductor : MonoBehaviour
                 _trigger.Invoke();
             }
         }
+    }
+
+    public void MarkBeatmapComplete()
+    {
+        beatmapOver = true;
+    }
+
+    public void IncrementActiveNotes()
+    {
+        activeNotes++;
+    }
+
+    public void DecrementActiveNotes()
+    {
+        activeNotes--;
+    }
+
+    public bool getIsSongPlaying()
+    {
+        return isPlaying;
+    }
+
+    public bool GetBeatMapOver()
+    {
+        return beatmapOver;
     }
 }
