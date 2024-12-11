@@ -11,4 +11,8 @@ public class MainMenuButton : MonoBehaviour
     {
         SceneManager.LoadScene("LevelSelect");
     }
+
+    public void Quit() {
+        Application.Quit();
+    }
 }
