@@ -53,12 +53,6 @@ public class Note : MonoBehaviour
         {
             float currentNotePosFromCenter = Mathf.Abs(transform.position.x - hitLineCenter);
 
-            if (!isFirstNoteHit)
-            {
-                isFirstNoteHit = true;
-                GameManager.Instance.EnableAccuracy();
-            }
-
             if (currentNotePosFromCenter <= noteDestroyer.getPerfectTolerance())
             {
                 GameManager.Instance.PerfectHit();
@@ -115,11 +109,6 @@ public class Note : MonoBehaviour
             touching = false;
             if (!scored)
             {
-                if (!isFirstNoteHit)
-                {
-                    isFirstNoteHit = true;
-                    GameManager.Instance.EnableAccuracy();
-                }
                 GameManager.Instance.NoteMissed();
             }
         }
