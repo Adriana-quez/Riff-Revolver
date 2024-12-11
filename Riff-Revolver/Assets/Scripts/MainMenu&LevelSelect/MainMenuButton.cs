@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEditor;
 
 public class MainMenuButton : MonoBehaviour
 {
@@ -14,5 +15,10 @@ public class MainMenuButton : MonoBehaviour
 
     public void Quit() {
         Application.Quit();
+        /*if (EditorApplication.isPlaying) {
+            EditorApplication.isPlaying = false;
+        } else {
+            Application.Quit();
+        }*/
     }
 }

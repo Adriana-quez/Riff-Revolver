@@ -19,6 +19,11 @@ public class Note : MonoBehaviour
     public Conductor conductor;
     public bool isLastNote = false;
 
+    public Sprite bulletUpSprite;
+    public Sprite bulletDownSprite;
+    public Sprite bucketUpSprite;
+    public Sprite bucketDownSprite;
+
     void Start()
     {
         hitLine = GameObject.FindWithTag("HitLine");
@@ -39,6 +44,24 @@ public class Note : MonoBehaviour
             else if (track == "Track2")
             {
                 spriteRenderer.sprite = barDownSprite;
+                destroyKeys = new KeyCode[] { KeyCode.DownArrow, KeyCode.S };
+            }
+        } else if (SceneManager.GetActiveScene().name == "DuelLevel") {
+            if (track == "Track1")
+            {
+                spriteRenderer.sprite = bulletUpSprite;
+                destroyKeys = new KeyCode[] { KeyCode.UpArrow, KeyCode.W };
+            } else if (track == "Track2") {
+                spriteRenderer.sprite = bulletDownSprite;
+                destroyKeys = new KeyCode[] { KeyCode.DownArrow, KeyCode.S };
+            }
+        } else if (SceneManager.GetActiveScene().name == "CherrySpittingLevel") {
+            if (track == "Track1")
+            {
+                spriteRenderer.sprite = bucketUpSprite;
+                destroyKeys = new KeyCode[] { KeyCode.UpArrow, KeyCode.W };
+            } else if (track == "Track2") {
+                spriteRenderer.sprite = bucketDownSprite;
                 destroyKeys = new KeyCode[] { KeyCode.DownArrow, KeyCode.S };
             }
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEditor;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.P)){
+        if(Input.GetKey(KeyCode.Escape)){
             Pause();
         }
     }
@@ -49,6 +50,11 @@ public class PauseMenu : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+        /*if (EditorApplication.isPlaying) {
+            EditorApplication.isPlaying = false;
+        } else {
+            Application.Quit();
+        }*/
     }
 
 }
