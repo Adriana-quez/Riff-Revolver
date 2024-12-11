@@ -40,7 +40,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         accuracyTextScript = accuracyText.GetComponent<AccuracyText>();
-        accuracyText.SetActive(false);
         Instance = this;
         resetValues();
     }
@@ -49,11 +48,6 @@ public class GameManager : MonoBehaviour
     {
         if (currentCombo >= highestCombo) highestCombo = currentCombo;
         if (conductor.GetBeatMapOver() && !isLevelOverPanelCalled) StartCoroutine(ShowResults());
-    }
-
-    public void EnableAccuracy()
-    {
-        accuracyText.SetActive(true);
     }
 
     IEnumerator ShowResults()
