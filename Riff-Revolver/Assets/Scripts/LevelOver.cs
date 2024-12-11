@@ -50,9 +50,9 @@ public class LevelOver : MonoBehaviour
     private int CalculateStarRating(int score)
     {
         
-        if (score >= 100) return 3; 
-        if (score >= 75) return 2;  
-        if (score >= 50) return 1;  
+        if (score >= 10000) return 3; 
+        if (score >= 8000) return 2;  
+        if (score >= 6000) return 1;  
         return 0;                
     }
 
